@@ -1,0 +1,42 @@
+Kernel Lonas_KL 2.0 versión Stock
+------------------------------------------------
+Cambios realizados a día 11/04/2013
+
+1.  GT-I9300_JB_Opensource_Update10
+2.  Modificados Tweaks internos
+3.  Actualizado RAMDISK a I9300XXEMC2 
+4.  Añadido IOSCHED ZEN
+5.  IOSCHED ROW + Governor Lonas por defecto
+6.  CIFS y NFS activado por defecto
+7.  Desactivados Governors POWERSAVE, USERSPACE y ONDEMAND
+8.  Eliminado Controlador Boeffla Sound - Volvemos a REM.
+9.  Mejorada transferencia de escritura y lectura en sd interna/externa
+10. Governor lonas: Eliminado io busy control
+11. Governor lonas: No escalar hacia abajo dentro de flexrate sub-samples
+12. Governor lonas: Equilibrando y Optimizando Rendimiento y Batería
+12. Pequeño FIX en REM SOUND (0.5)
+14. mali/midas-power: Disminución del límite de voltaje mínimo (una vez mas)
+15. Carga AC Rápida (1200mA)
+16. Añadido IOSCHED VR
+17. Añadido Soporte XZ y comprimido con XZ
+18. Desactivado SWAP
+19. staging: android: Avoid using camelcase in binder.h
+20. staging: android: Fix two checkpatch issues in binder.c
+21. Staging: android: binder: Allow using highmem for binder buffers
+22. Staging: android: binder: Fix memory leak on thread/process exit
+23. Compilado con Toolchain android-ndk-r8e (GCC 4.7) (No linaro)
+24. make the scaling_cur_freq sysfs entry pollable
+25. Añadido controlador Hotplug
+26. bcmdhd: strip debug of wifi module
+--------------------------------------------------
+
+Gracias a la cantidad de utilidades aportadas a la comunidad, modificaciones, añadidos, etc.. Así como la ayuda prestada en alguna ocasión por compañeros aquí citados.
+
+Quiero dar mis Agradecimientos y mis respetos a: 
+
+Samsung, yank555-lu, AndreiLux, andip71, gokhanmoral, alanorth, NeoPhyTe-x360, franciscofranco, Ezekeel, François, simone201, fenomeno83, zanezam, Vincent Guittot, Hardcore, CruzBishop, Andreas Kemnade, faux123, Alex Shi...
+
+Y alguno más que seguro no recuerdo ahora ;)
+
+
+
