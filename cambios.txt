@@ -28,6 +28,8 @@ Cambios realizados a día 11/04/2013
 24. make the scaling_cur_freq sysfs entry pollable
 25. Añadido controlador Hotplug
 26. bcmdhd: strip debug of wifi module
+27. mali: GPU control (uV)
+28. mali: Corregida Frecuencia GPU oV
 --------------------------------------------------
 
 Gracias a la cantidad de utilidades aportadas a la comunidad, modificaciones, añadidos, etc.. Así como la ayuda prestada en alguna ocasión por compañeros aquí citados.
