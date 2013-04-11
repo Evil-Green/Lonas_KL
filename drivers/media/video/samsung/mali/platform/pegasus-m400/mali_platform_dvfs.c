@@ -459,7 +459,7 @@ static unsigned int decideNextStatus(unsigned int utilization)
 
 	if (!mali_dvfs_control && level == maliDvfsStatus.currentStep) {
 		if (utilization > (int)(255 * mali_dvfs_threshold[maliDvfsStatus.currentStep].upthreshold / 100) &&
-				level < MALI_DVFS_STEPS - 1) {
+				level < MALI_DVFS_STEPS - 2) {
 			level++;
 			if ((samsung_rev() < EXYNOS4412_REV_2_0) && (maliDvfsStatus.currentStep == 3)) {
 				level=get_mali_dvfs_status();

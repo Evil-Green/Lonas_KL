@@ -30,7 +30,7 @@
 #endif
 
 /* @Enable or Disable Mali GPU Bottom Lock feature */
-#define MALI_GPU_BOTTOM_LOCK 1
+#define MALI_GPU_BOTTOM_LOCK 0
 
 #define MALI_VOLTAGE_LOCK 1
 
