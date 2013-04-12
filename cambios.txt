@@ -1,6 +1,6 @@
 Kernel Lonas_KL 2.0 versión Stock
 ------------------------------------------------
-Cambios realizados a día 11/04/2013
+Cambios realizados a día 12/04/2013
 
 1.  GT-I9300_JB_Opensource_Update10
 2.  Modificados Tweaks internos
@@ -19,7 +19,7 @@ Cambios realizados a día 11/04/2013
 15. Carga AC Rápida (1200mA)
 16. Añadido IOSCHED VR
 17. Añadido Soporte XZ y comprimido con XZ
-18. Desactivado SWAP
+18. Activado SWAP
 19. staging: android: Avoid using camelcase in binder.h
 20. staging: android: Fix two checkpatch issues in binder.c
 21. Staging: android: binder: Allow using highmem for binder buffers
@@ -38,6 +38,11 @@ Cambios realizados a día 11/04/2013
 34. mdnie: Switchable sharpness fix
 35. leds-an30259a: LED fading/blinking support
 36. Eliminado debug logging para algunos controladores
+37. Soporte OTG USB 
+38. Activado CLEANCACHE
+39. Activado RING BUFFER ALLOW SWAP
+40. CONFIG_HZ Aumentado a 300
+41. Soporte Zcache + Zram
 --------------------------------------------------
 
 Gracias a la cantidad de utilidades aportadas a la comunidad, modificaciones, añadidos, etc.. Así como la ayuda prestada en alguna ocasión por compañeros aquí citados.
