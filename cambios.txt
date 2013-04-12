@@ -30,6 +30,14 @@ Cambios realizados a día 11/04/2013
 26. bcmdhd: strip debug of wifi module
 27. mali: GPU control (uV)
 28. mali: Corregida Frecuencia GPU oV
+29. Añadido CPU undervolting interface
+30. mali: control total sobre la frecuencia y voltajes
+31. mali: platform rewrite
+32. mali: disable mali_runtime_resume
+33. Corregido dynamic sync control
+34. mdnie: Switchable sharpness fix
+35. leds-an30259a: LED fading/blinking support
+36. Eliminado debug logging para algunos controladores
 --------------------------------------------------
 
 Gracias a la cantidad de utilidades aportadas a la comunidad, modificaciones, añadidos, etc.. Así como la ayuda prestada en alguna ocasión por compañeros aquí citados.
