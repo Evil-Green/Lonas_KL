@@ -42,6 +42,7 @@ Cambios realizados a día 12/04/2013
 38. Activado CLEANCACHE
 39. Activado RING BUFFER ALLOW SWAP
 40. CONFIG_HZ Aumentado a 300
+41. Activado DNS_RESOLVER
 --------------------------------------------------
 
 Gracias a la cantidad de utilidades aportadas a la comunidad, modificaciones, añadidos, etc.. Así como la ayuda prestada en alguna ocasión por compañeros aquí citados.
