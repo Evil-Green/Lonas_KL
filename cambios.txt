@@ -43,6 +43,7 @@ Cambios realizados a día 12/04/2013
 39. Activado RING BUFFER ALLOW SWAP
 40. CONFIG_HZ Aumentado a 300
 41. Activado DNS_RESOLVER
+42. Linux 3.0.32
 --------------------------------------------------
 
 Gracias a la cantidad de utilidades aportadas a la comunidad, modificaciones, añadidos, etc.. Así como la ayuda prestada en alguna ocasión por compañeros aquí citados.
