@@ -97,7 +97,7 @@ static void calculate_gpu_utilization(void *arg)
 
 	_mali_osk_lock_signal(time_data_lock, _MALI_OSK_LOCKMODE_RW);
 
-	_mali_osk_timer_add(utilization_timer, _mali_osk_time_mstoticks(mali_gpu_utilization_timeout));
+	_mali_osk_timer_add(utilization_timer, _mali_osk_time_mstoticks(MALI_GPU_UTILIZATION_TIMEOUT));
 
 	mali_gpu_utilization_handler(utilization);
 }
