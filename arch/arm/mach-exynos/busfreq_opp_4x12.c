@@ -18,7 +18,6 @@
 #include <linux/regulator/consumer.h>
 #include <linux/sysfs.h>
 #include <linux/platform_device.h>
-#include <linux/sysfs_helpers.h>
 #include <linux/device.h>
 #include <linux/module.h>
 #include <linux/cpu.h>
@@ -66,11 +65,6 @@ static bool int_locking;
 
 /* To save/restore DMC_PAUSE_CTRL register */
 static unsigned int dmc_pause_ctrl;
-
-/* Custom Voltage */
-#ifdef CONFIG_CUSTOM_VOLTAGE
-extern void customvoltage_cpu_init(void);
-#endif
 
 enum busfreq_level_idx {
 	LV_0,
@@ -257,7 +251,7 @@ static unsigned int exynos4412_mif_volt[ASV_GROUP][LV_END] = {
 
 static unsigned int exynos4412_int_volt[ASV_GROUP][LV_END] = {
   /* GDR : 266       200      200     160    160      133     100 */
-	{1087500, 1037500, 1037500, 950000, 950000, 912500, 875000}, /* RESERVED */  /* EDITED */ 
+	{1087500, 1037500, 1037500, 950000, 950000, 912500, 875000}, /* RESERVED */
 	{1075000, 1025000, 1025000, 937500, 937500, 900000, 862500}, /* RESERVED */
 	{1050000, 1000000, 1000000, 912500, 912500, 887500, 850000}, /* ASV2 */
 	{1037500,  987500,  987500, 912500, 912500, 875000, 837500}, /* ASV3 */
@@ -1073,89 +1067,5 @@ int exynos4x12_init(struct device *dev, struct busfreq_data *data)
 	data->exynos_busqos_notifier.notifier_call = exynos4x12_bus_qos_notifiy;
 	exynos4x12_bus_qos_notifier_init(&data->exynos_busqos_notifier);
 
-#ifdef CONFIG_CUSTOM_VOLTAGE
-	customvoltage_cpu_init();
-#endif
-
 	return 0;
 }
-
-/* sysfs interface for internal voltage control */
-ssize_t show_int_mV_table(struct cpufreq_policy *policy, char *buf) {
-    
-  int i, len = 0;
-  if (buf) {
-    for (i = 0 ; i < LV_END ; i++) {
-      len += sprintf(buf + len, "%dmhz: %d mV\n", exynos4_busfreq_table[i].mem_clk/1000,exynos4_busfreq_table[i].volt/1000);
-    }
-  }
-  return len;
-}
-
-ssize_t store_int_mV_table(struct cpufreq_policy *policy,
-                                      const char *buf, size_t count) {
-
-  unsigned int ret = -EINVAL;
-    int i = 0;
-  int u[7];
-  
-  ret = sscanf(buf, "%d %d %d %d %d %d %d", &u[0], &u[1], &u[2], &u[3], &u[4], &u[5], &u[6]);
-  
-  if(ret != 7)
-    return -EINVAL;
-  
-  for( i = 0; i < LV_END; i++ ) {
-    if (u[i] > CPU_INT_MAX_UV / 1000) {
-      u[i] = CPU_INT_MAX_UV / 1000;
-    }
-    else if (u[i] < CPU_INT_MIN_UV / 1000) {
-      u[i] = CPU_INT_MIN_UV / 1000;
-    }
-  }
-  
-  for( i = 0; i < LV_END; i++ ) {
-    exynos4_busfreq_table[i].volt = u[i]*1000;
-  }
-  return count;
-}
-
-/* CUSTOM VOLTAGE INTERFACE - thx to Ezekeel */
-#ifdef CONFIG_CUSTOM_VOLTAGE
-void customvoltage_updateintvolt(unsigned long * int_voltages)
-{
-    int i;
-
-    for (i = 0; i < LV_END; i++) {
-    if (int_voltages[i] > CPU_INT_MAX_UV)
-      int_voltages[i] = CPU_INT_MAX_UV;
-    else if (int_voltages[i] < CPU_INT_MIN_UV)
-      int_voltages[i] = CPU_INT_MIN_UV;
-      
-    exynos4_busfreq_table[i].volt = int_voltages[i];
-    }
-
-    return;
-}
-EXPORT_SYMBOL(customvoltage_updateintvolt);
-
-int customvoltage_numfreqs(void) {
-    return LV_END;
-}
-EXPORT_SYMBOL(customvoltage_numfreqs);
-
-void customvoltage_freqvolt(unsigned long * freqs, unsigned long * int_voltages) {
-    int i = 0;    
-
-  while (exynos4_busfreq_table[i].idx < LV_END) {
-    freqs[i] = exynos4_busfreq_table[i].mem_clk;
-    i++;
-    }
-
-    for (i = 0; i < LV_END; i++) {
-    int_voltages[i] = exynos4_busfreq_table[i].volt;
-    }
-
-    return;
-}
-EXPORT_SYMBOL(customvoltage_freqvolt);
-#endif
