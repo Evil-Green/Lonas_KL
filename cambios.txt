@@ -1,6 +1,6 @@
 Kernel Lonas_KL 2.0 versión Stock
 ------------------------------------------------
-Cambios realizados a día 12/04/2013
+Cambios realizados a día 14/04/2013
 
 1.  GT-I9300_JB_Opensource_Update10
 2.  Modificados Tweaks internos
@@ -44,6 +44,10 @@ Cambios realizados a día 12/04/2013
 40. CONFIG_HZ Aumentado a 300
 41. Activado DNS_RESOLVER
 42. Linux 3.0.32
+43. Añadido FSync Control
+44. Añadido asignador de memoria SLQB
+45. Optimizado algoritmo ARM RWSEM
+46. Optimizado algoritmo CRC32
 --------------------------------------------------
 
 Gracias a la cantidad de utilidades aportadas a la comunidad, modificaciones, añadidos, etc.. Así como la ayuda prestada en alguna ocasión por compañeros aquí citados.
