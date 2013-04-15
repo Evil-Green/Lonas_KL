@@ -1,10 +1,20 @@
 /*
  *  drivers/cpufreq/cpufreq_lonas.c
  *
- *  ORIGINAL => (cpufreq_yankasusq.c)
- *  Idea y código original de : Jean-Pierre Rasquin <yank555.lu@gmail.com> (Tanks yank555!!)
+ *  - Lonas governor - Rendimiento y Batería
  *
- *  Modificado y adaptado a Lonas_KL el 19-02-2013 por: Javier Sayago <admin@lonasdigital.com>
+ *  Javier Sayago <admin@lonasdigital.com> (Javilonas)
+ *
+ *  Equilibrado y Optimizado Rendimiento y Batería, Eliminado io busy control, 
+ *  No escalar hacia abajo dentro de flexrate sub-samples.
+ *
+ *  Lonas governor
+ *  Copyright (C)  2013 Javilonas
+ *    Javier Sayago <admin@lonasdigital.com>
+ *
+ *  Based on yankasusq  governor 
+ *  Copyright (C)  2012 yank555
+ *    Jean-Pierre Rasquin <yank555.lu@gmail.com> 
  *
  *  Introducing cpu frequency limitations based on the number of cores online.
  * 
@@ -154,25 +164,25 @@ static unsigned int get_nr_run_avg(void)
 #define DEF_SAMPLING_DOWN_FACTOR		(2)
 #define MAX_SAMPLING_DOWN_FACTOR		(100000)
 #define DEF_FREQUENCY_DOWN_DIFFERENTIAL		(5)
-#define DEF_FREQUENCY_UP_THRESHOLD		(80)
+#define DEF_FREQUENCY_UP_THRESHOLD		(82)
 #define DEF_FREQUENCY_MIN_SAMPLE_RATE		(10000)
 #define MIN_FREQUENCY_UP_THRESHOLD		(11)
 #define MAX_FREQUENCY_UP_THRESHOLD		(100)
-#define DEF_SAMPLING_RATE			(50000)
+#define DEF_SAMPLING_RATE			(30000)
 #define MIN_SAMPLING_RATE			(10000)
 #define MAX_HOTPLUG_RATE			(40u)
 
 #define DEF_MAX_CPU_LOCK			(0)
 #define DEF_MIN_CPU_LOCK			(0)
-#define DEF_CPU_UP_FREQ				(500000)
+#define DEF_CPU_UP_FREQ				(300000)
 #define DEF_CPU_DOWN_FREQ			(200000)
 #define DEF_CPU_MAX_FREQ_1			(1000000) /*  CPU freq. limit running on 1 core */
 #define DEF_CPU_MAX_FREQ_2			(1100000) /*  CPU freq. limit running on 2 cores */
 #define DEF_CPU_MAX_FREQ_3			(1200000) /*  CPU freq. limit running on 3 cores */
 #define DEF_CPU_MAX_FREQ_4			(1400000) /*  CPU freq. limit running on 4 cores */
 #define DEF_UP_NR_CPUS				(1)
-#define DEF_CPU_UP_RATE				(10)
-#define DEF_CPU_DOWN_RATE			(10)
+#define DEF_CPU_UP_RATE				(16)
+#define DEF_CPU_DOWN_RATE			(30)
 #define DEF_FREQ_STEP				(37)
 #define DEF_START_DELAY				(0)
 
