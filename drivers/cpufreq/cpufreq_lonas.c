@@ -196,14 +196,14 @@ static unsigned int get_nr_run_avg(void)
 
 #ifdef CONFIG_MACH_MIDAS
 static int hotplug_rq[4][2] = {
-	{0, 100}, {100, 200}, {200, 300}, {300, 0}
+	{0, 175}, {175, 275}, {275, 375}, {375, 0}
 };
 
 static int hotplug_freq[4][2] = {
 	{0, 500000},
 	{200000, 500000},
-	{200000, 500000},
-	{200000, 0}
+	{200000, 700000},
+	{400000, 0}
 };
 #else
 static int hotplug_rq[4][2] = {
