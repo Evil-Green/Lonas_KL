@@ -1,6 +1,6 @@
 Kernel Lonas_KL 2.0 versión Stock
 ------------------------------------------------
-Cambios realizados a día 14/04/2013
+Cambios realizados a día 15/04/2013
 
 1.  GT-I9300_JB_Opensource_Update10
 2.  Modificados Tweaks internos
@@ -46,8 +46,19 @@ Cambios realizados a día 14/04/2013
 42. Linux 3.0.32
 43. Añadido FSync Control
 44. Añadido asignador de memoria SLQB
-45. Optimizado algoritmo ARM RWSEM
-46. Optimizado algoritmo CRC32
+45. Optimizado algoritmo CRC32
+46. Añadido memcopy
+47. Memory & internal voltage control
+48. Add busfreq_data member for int_volt table
+49. opp: De-obscurify OPP structs and disclose find_device_opp
+50. Custom Voltage interface
+51. busfreq: Eliminado código no utilizable
+52. Governor lonas: reducir la ventana de muestra y ajustar en consecuencia hotplug
+53. Governor lonas: Aumento de CPU_UP_FREQ
+54. Governor lonas: Añadido flexrate en kconfig
+55. Governor display: CPUFreq LCDFreq capability & state accounting
+56. Governor lonas: Mecanismo de escalado LCDFreq
+57. Governor lonas: Añadido flexrate capability
 --------------------------------------------------
 
 Gracias a la cantidad de utilidades aportadas a la comunidad, modificaciones, añadidos, etc.. Así como la ayuda prestada en alguna ocasión por compañeros aquí citados.
