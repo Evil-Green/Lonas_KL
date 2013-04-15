@@ -1492,12 +1492,19 @@ static void cpufreq_lonas_early_suspend(struct early_suspend *h)
 }
 static void cpufreq_lonas_late_resume(struct early_suspend *h)
 {
+	struct cpu_dbs_info_s *dbs_info;
+
 #if EARLYSUSPEND_HOTPLUGLOCK
 	atomic_set(&g_hotplug_lock, dbs_tuners_ins.early_suspend);
 #endif
 	dbs_tuners_ins.early_suspend = -1;
 	dbs_tuners_ins.freq_step = lonas_prev_freq_step;
 	dbs_tuners_ins.sampling_rate = lonas_prev_sampling_rate;
+
+	/* Push CPU freq to current max on wakeup */
+	dbs_info = &per_cpu(od_cpu_dbs_info, 0); /* from CPU0 */
+	dbs_freq_increase(dbs_info->cur_policy, dbs_tuners_ins.cpu_max_freq_current);
+
 #if EARLYSUSPEND_HOTPLUGLOCK
 	apply_hotplug_lock();
 	start_rq_work();
