@@ -55,10 +55,6 @@ Cambios realizados a día 15/04/2013
 51. busfreq: Eliminado código no utilizable
 52. Governor lonas: reducir la ventana de muestra y ajustar en consecuencia hotplug
 53. Governor lonas: Aumento de CPU_UP_FREQ
-54. Governor lonas: Añadido flexrate en kconfig
-55. Governor display: CPUFreq LCDFreq capability & state accounting
-56. Governor lonas: Mecanismo de escalado LCDFreq
-57. Governor lonas: Añadido flexrate capability
 --------------------------------------------------
 
 Gracias a la cantidad de utilidades aportadas a la comunidad, modificaciones, añadidos, etc.. Así como la ayuda prestada en alguna ocasión por compañeros aquí citados.
