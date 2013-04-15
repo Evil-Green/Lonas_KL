@@ -174,7 +174,7 @@ static unsigned int get_nr_run_avg(void)
 
 #define DEF_MAX_CPU_LOCK			(0)
 #define DEF_MIN_CPU_LOCK			(0)
-#define DEF_CPU_UP_FREQ				(300000)
+#define DEF_CPU_UP_FREQ				(500000)
 #define DEF_CPU_DOWN_FREQ			(200000)
 #define DEF_CPU_MAX_FREQ_1			(1000000) /*  CPU freq. limit running on 1 core */
 #define DEF_CPU_MAX_FREQ_2			(1100000) /*  CPU freq. limit running on 2 cores */
