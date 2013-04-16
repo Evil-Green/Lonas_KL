@@ -1482,7 +1482,7 @@ static void cpufreq_lonas_early_suspend(struct early_suspend *h)
 	lonas_prev_freq_step = dbs_tuners_ins.freq_step;
 	lonas_prev_sampling_rate = dbs_tuners_ins.sampling_rate;
 	dbs_tuners_ins.freq_step = 20;
-	dbs_tuners_ins.sampling_rate *= 4;
+	dbs_tuners_ins.sampling_rate = 200000;
 #if EARLYSUSPEND_HOTPLUGLOCK
 	atomic_set(&g_hotplug_lock,
 	    (dbs_tuners_ins.min_cpu_lock) ? dbs_tuners_ins.min_cpu_lock : 1);
