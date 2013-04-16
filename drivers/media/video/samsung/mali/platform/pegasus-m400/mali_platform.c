@@ -158,6 +158,7 @@ void mali_regulator_set_voltage(int min_uV, int max_uV)
 		MALI_DEBUG_PRINT(1, ("error on mali_regulator_set_voltage : g3d_regulator is null\n"));
 		return;
 	}
+
     MALI_DEBUG_PRINT(2, ("= regulator_set_voltage: %d, %d \n",min_uV, max_uV));
 
 #if MALI_TIMELINE_PROFILING_ENABLED
@@ -614,7 +615,7 @@ _mali_osk_errcode_t mali_platform_powerdown(u32 cores)
 		MALI_PRINT(("mali_platform_powerdown gpu_power_state == 0 and cores %x \n", cores));
 	}
 
-  //bPoweroff=1; //TODO
+	//bPoweroff=1; //TODO
 
 	MALI_SUCCESS;
 }
@@ -638,7 +639,7 @@ _mali_osk_errcode_t mali_platform_powerup(u32 cores)
 		gpu_power_state = gpu_power_state | cores;
 	}
 
-  //bPoweroff=0; //TODO
+	//bPoweroff=0; //TODO
 
 	MALI_SUCCESS;
 }
