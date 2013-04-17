@@ -1,6 +1,6 @@
 Kernel Lonas_KL 2.0 versión Stock
 ------------------------------------------------
-Cambios realizados a día 15/04/2013
+Cambios realizados a día 17/04/2013
 
 1.  GT-I9300_JB_Opensource_Update10
 2.  Modificados Tweaks internos
@@ -13,13 +13,13 @@ Cambios realizados a día 15/04/2013
 9.  Mejorada transferencia de escritura y lectura en sd interna/externa
 10. Governor lonas: Eliminado io busy control
 11. Governor lonas: No escalar hacia abajo dentro de flexrate sub-samples
-12. Governor lonas: Equilibrando y Optimizando Rendimiento y Batería
+12. Governor lonas: Equilibrio (Rendimiento/Batería)
 12. Pequeño FIX en REM SOUND (0.5)
 14. mali/midas-power: Disminución del límite de voltaje mínimo (una vez mas)
 15. Carga AC Rápida (1200mA)
 16. Añadido IOSCHED VR
 17. Añadido Soporte XZ y comprimido con XZ
-18. Activado SWAP
+18. Eliminado Soporte SWAP
 19. staging: android: Avoid using camelcase in binder.h
 20. staging: android: Fix two checkpatch issues in binder.c
 21. Staging: android: binder: Allow using highmem for binder buffers
@@ -55,6 +55,23 @@ Cambios realizados a día 15/04/2013
 51. busfreq: Eliminado código no utilizable
 52. Governor lonas: reducir la ventana de muestra y ajustar en consecuencia hotplug
 53. Governor lonas: Aumento de CPU_UP_FREQ
+54. lib/lzo: Update LZO compression to current upstream version
+55. lonas: Push CPU freq to current max on wakeup
+56. smdk4412: s3cfb_s6e8ax0: Stop fb shitstorm in kmsg
+57. lonas: Sampling_rate a 200000 cuando la pantalla está apagada
+58. lonas: Freq_step a 10 cuando la pantalla está apagada
+59. sched: Add missing call to calc_load_exit_idle()
+60. sched/nohz: Rewrite, fix and add more accurate load-avg computation
+61. touch gesture support back
+62. mms_ts: touch gestures optimizations
+63. Añadido Controlador J4FS
+64. mali: better way to fix being stuck in a loop because the clocks was disabled while late initializing mali
+65. mach-midas: tmu modifications. increase some throttling thresholds
+66. cpupower: update the cpu_power according to cpu load
+67. mms_ts: disable debug
+68. Soporte compresor/descompresor SNAPPY
+69. busfreq: Freq por Defecto
+70. Ramchek.sh, dropcache.sh, undervolt.sh (Test)
 --------------------------------------------------
 
 Gracias a la cantidad de utilidades aportadas a la comunidad, modificaciones, añadidos, etc.. Así como la ayuda prestada en alguna ocasión por compañeros aquí citados.
