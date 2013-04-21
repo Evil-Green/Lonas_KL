@@ -18,7 +18,6 @@
 #include <linux/regulator/consumer.h>
 #include <linux/sysfs.h>
 #include <linux/platform_device.h>
-#include <linux/sysfs_helpers.h>
 #include <linux/device.h>
 #include <linux/module.h>
 #include <linux/cpu.h>
@@ -860,7 +859,7 @@ struct opp *exynos4x12_monitor(struct busfreq_data *data)
 		cpufreq = opp_get_freq(data->max_opp);
 		if (cpu_load < max_cpu_threshold) {
 			opp = data->curr_opp;
-			if (cpu_load_slope > cpu_slope_size) {
+			if (cpu_load_slope < cpu_slope_size) {
 				cpufreq--;
 				opp = opp_find_freq_floor(data->dev, &cpufreq);
 			}
