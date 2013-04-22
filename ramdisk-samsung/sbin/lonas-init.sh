@@ -23,7 +23,7 @@ else
 	/sbin/samsungani
 fi
 
-
+sleep 10
 # Remount all partitions with noatime
   for k in $(/sbin/busybox mount | /sbin/busybox grep relatime | /sbin/busybox cut -d " " -f3)
   do
@@ -42,6 +42,14 @@ fi
 echo "12288" > /proc/sys/vm/min_free_kbytes
 echo "1500" > /proc/sys/vm/dirty_writeback_centisecs
 echo "200" > /proc/sys/vm/dirty_expire_centisecs
+echo "70" > /proc/sys/vm/dirty_background_ratio;
+echo "90" > /proc/sys/vm/dirty_ratio;
+echo "4" > /proc/sys/vm/min_free_order_shift;
+echo "1" > /proc/sys/vm/overcommit_memory;
+echo "50" > /proc/sys/vm/overcommit_ratio;
+echo "128 128" > /proc/sys/vm/lowmem_reserve_ratio;
+echo "3" > /proc/sys/vm/page-cluster;
+echo "0" > /proc/sys/vm/swappiness
 
 # Tweaks internos
 echo "2" > /sys/devices/system/cpu/sched_mc_power_savings
@@ -57,31 +65,31 @@ echo "256" > /sys/block/mmcblk1/bdi/read_ahead_kb
 
 # Governor por defecto
 echo "lonas" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
-# cpu2
-echo "500000" > /sys/devices/system/cpu/cpufreq/lonas/hotplug_freq_1_1
-echo "400000" > /sys/devices/system/cpu/cpufreq/lonas/hotplug_freq_2_0
-echo "100" > /sys/devices/system/cpu/cpufreq/lonas/hotplug_rq_1_1
-echo "100" > /sys/devices/system/cpu/cpufreq/lonas/hotplug_rq_2_0
-
-# cpu3
-echo "800000" > /sys/devices/system/cpu/cpufreq/lonas/hotplug_freq_2_1
-echo "600000" > /sys/devices/system/cpu/cpufreq/lonas/hotplug_freq_3_0
-echo "200" > /sys/devices/system/cpu/cpufreq/lonas/hotplug_rq_2_1
-echo "200" > /sys/devices/system/cpu/cpufreq/lonas/hotplug_rq_3_0
-
-# cpu4
-echo "800000" > /sys/devices/system/cpu/cpufreq/lonas/hotplug_freq_3_1
-echo "600000" > /sys/devices/system/cpu/cpufreq/lonas/hotplug_freq_4_0
-echo "300" > /sys/devices/system/cpu/cpufreq/lonas/hotplug_rq_3_1
-echo "300" > /sys/devices/system/cpu/cpufreq/lonas/hotplug_rq_4_0
 
 # IPv6 privacy tweak
 echo "2" > /proc/sys/net/ipv6/conf/all/use_tempaddr
 
 # TCP tweaks
-echo "2" > /proc/sys/net/ipv4/tcp_syn_retries
-echo "2" > /proc/sys/net/ipv4/tcp_synack_retries
-echo "10" > /proc/sys/net/ipv4/tcp_fin_timeout
+echo "0" > /proc/sys/net/ipv4/tcp_timestamps;
+echo "1" > /proc/sys/net/ipv4/tcp_tw_reuse;
+echo "1" > /proc/sys/net/ipv4/tcp_sack;
+echo "1" > /proc/sys/net/ipv4/tcp_tw_recycle;
+echo "1" > /proc/sys/net/ipv4/tcp_window_scaling;
+echo "1" > /proc/sys/net/ipv4/tcp_moderate_rcvbuf;
+echo "1" > /proc/sys/net/ipv4/route/flush;
+echo "2" > /proc/sys/net/ipv4/tcp_syn_retries;
+echo "2" > /proc/sys/net/ipv4/tcp_synack_retries;
+echo "10" > /proc/sys/net/ipv4/tcp_fin_timeout;
+echo "0" > /proc/sys/net/ipv4/tcp_ecn;
+echo "524288" > /proc/sys/net/core/wmem_max;
+echo "524288" > /proc/sys/net/core/rmem_max;
+echo "262144" > /proc/sys/net/core/rmem_default;
+echo "262144" > /proc/sys/net/core/wmem_default;
+echo "20480" > /proc/sys/net/core/optmem_max;
+echo "6144 87380 524288" > /proc/sys/net/ipv4/tcp_wmem;
+echo "6144 87380 524288" > /proc/sys/net/ipv4/tcp_rmem;
+echo "4096" > /proc/sys/net/ipv4/udp_rmem_min;
+echo "4096" > /proc/sys/net/ipv4/udp_wmem_min;
 
 for i in $(/sbin/busybox find /sys/block/mmc*)
 do 
@@ -93,6 +101,24 @@ echo "0" > $i/queue/iostats
 echo "1" > $i/queue/iosched/back_seek_penalty
 echo "2" > $i/queue/iosched/slice_idle
 done
+
+# Misc IO Tweaks
+echo "524288" > /proc/sys/fs/file-max;
+echo "1048576" > /proc/sys/fs/nr_open;
+echo "32000" > /proc/sys/fs/inotify/max_queued_events;
+echo "256" > /proc/sys/fs/inotify/max_user_instances;
+echo "10240" > /proc/sys/fs/inotify/max_user_watches;
+
+# Misc Kernel Tweaks
+echo "2048" > /proc/sys/kernel/msgmni;
+echo "65536" > /proc/sys/kernel/msgmax;
+echo "10" > /proc/sys/fs/lease-break-time;
+echo "128" > /proc/sys/kernel/random/read_wakeup_threshold;
+echo "256" > /proc/sys/kernel/random/write_wakeup_threshold;
+echo "500 512000 64 2048" > /proc/sys/kernel/sem;
+echo "2097152" > /proc/sys/kernel/shmall;
+echo "268435456" > /proc/sys/kernel/shmmax;
+echo "524288" > /proc/sys/kernel/threads-max;
 
 # Turn off debugging for certain modules
 echo "0" > /sys/module/wakelock/parameters/debug_mask
