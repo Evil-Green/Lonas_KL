@@ -1,10 +1,10 @@
 Kernel Lonas_KL 2.0 versión Stock
 ------------------------------------------------
-Cambios realizados a día 17/04/2013
+Cambios realizados a día 22/04/2013
 
 1.  GT-I9300_JB_Opensource_Update10
 2.  Modificados Tweaks internos
-3.  Actualizado RAMDISK a I9300XXEMC2 
+3.  Actualizado RAMDISK a I9300XXMC3 
 4.  Añadido IOSCHED ZEN
 5.  IOSCHED ROW + Governor Lonas por defecto
 6.  CIFS y NFS activado por defecto
@@ -41,7 +41,7 @@ Cambios realizados a día 17/04/2013
 37. Soporte OTG USB 
 38. Activado CLEANCACHE
 39. Activado RING BUFFER ALLOW SWAP
-40. CONFIG_HZ Aumentado a 300
+40. CONFIG_HZ a 200 de nuevo
 41. Activado DNS_RESOLVER
 42. Linux 3.0.32
 43. Añadido FSync Control
@@ -56,10 +56,10 @@ Cambios realizados a día 17/04/2013
 52. Governor lonas: reducir la ventana de muestra y ajustar en consecuencia hotplug
 53. Governor lonas: Aumento de CPU_UP_FREQ
 54. lib/lzo: Update LZO compression to current upstream version
-55. lonas: Push CPU freq to current max on wakeup
+55. Governor lonas: Push CPU freq to current max on wakeup
 56. smdk4412: s3cfb_s6e8ax0: Stop fb shitstorm in kmsg
-57. lonas: Sampling_rate a 200000 cuando la pantalla está apagada
-58. lonas: Freq_step a 10 cuando la pantalla está apagada
+57. Governor lonas: Sampling_rate a 200000 cuando la pantalla está apagada
+58. Governor lonas: Freq_step a 10 cuando la pantalla está apagada
 59. sched: Add missing call to calc_load_exit_idle()
 60. sched/nohz: Rewrite, fix and add more accurate load-avg computation
 61. touch gesture support back
@@ -71,7 +71,12 @@ Cambios realizados a día 17/04/2013
 67. mms_ts: disable debug
 68. Soporte compresor/descompresor SNAPPY
 69. busfreq: Freq por Defecto
-70. Ramchek.sh, dropcache.sh, undervolt.sh (Test)
+70. pequeños cambios internos (buscando estabilidad)
+71. Corregido busfreq_opp_4x12.c
+72. Eliminados Tweaks Governor Lonas en Ramdisk
+73. Tweaks Lonas_KL
+74. Ajustando Voltajes
+75. buqfreq: Use cpu_load_slope correctly
 --------------------------------------------------
 
 Gracias a la cantidad de utilidades aportadas a la comunidad, modificaciones, añadidos, etc.. Así como la ayuda prestada en alguna ocasión por compañeros aquí citados.
